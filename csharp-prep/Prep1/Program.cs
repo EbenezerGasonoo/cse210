@@ -6,12 +6,12 @@ class Program
     {
         // Ask for Name
         Console.Write("What is your  First Name?  ");
-        string  FirstName = Console.ReadLine();
+        string  firstName = Console.ReadLine();
 
         Console.Write("What is your Last Name?  ");
-        string LastName = Console.ReadLine();
+        string lastName = Console.ReadLine();
 
-        Console.Write($"Your name is {LastName}, {FirstName} {LastName}. ");
+        Console.Write($"Your name is {lastName}, {firstName} {lastName}. ");
 
     }
 }
