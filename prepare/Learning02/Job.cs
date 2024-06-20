@@ -1,31 +1,16 @@
-// using System;
-
-// public class Job
-// {
-//     //Member variable
-//     public string _company;
-//     public string _jobTitle;
-//     public int _startYear;
-//     public int _endYear;
-
-//     //Method to display job information
-//     public void DisplayJobInfo()
-//     {
-//         Console.WriteLine($"{_jobTitle} ({_company} {_startYear}- {_endYear})");
-//     }
-// }
-
 using System;
 
 public class Job
 {
-    public string _jobTitle;
+    //Member variable
     public string _company;
+    public string _jobTitle;
     public int _startYear;
     public int _endYear;
 
-    public void Display()
+    //Method to display job information
+    public void DisplayJobInfo()
     {
-        Console.WriteLine($"{_jobTitle} ({_company}) {_startYear}-{_endYear}");
+        Console.WriteLine($"{_jobTitle} ({_company} {_startYear}- {_endYear})");
     }
 }
