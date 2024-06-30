@@ -1,41 +1,68 @@
 using System;
 
-public class Fraction
+namespace FractionApp
 {
-    private int _top;
-    private int _bottom;
-
-    public Fraction()
+    public class Fraction
     {
-        // Default to 1/1
-        _top = 1;
-        _bottom = 1;
-    }
+        private int _numerator;
+        private int _denominator;
 
-    public Fraction(int wholeNumber)
-    {
-        _top = wholeNumber;
-        _bottom = 1;
-    }
+        // Constructor with no parameters, initializes to 1/1
+        public Fraction()
+        {
+            _numerator = 1;
+            _denominator = 1;
+        }
 
-    public Fraction(int top, int bottom)
-    {
-        _top = top;
-        _bottom = bottom;
-    }
+        // Constructor with one parameter, initializes to numerator/1
+        public Fraction(int numerator)
+        {
+            _numerator = numerator;
+            _denominator = 1;
+        }
 
-    public string GetFractionString()
-    {
-        // Notice that this is not stored as a member variable.
-        // Is is just a temporary, local variable that will be recomputed each time this is called.
-        string text = $"{_top}/{_bottom}";
-        return text;
-    }
+        // Constructor with two parameters, initializes to numerator/denominator
+        public Fraction(int numerator, int denominator)
+        {
+            if (denominator == 0)
+            {
+                throw new ArgumentException("Denominator cannot be zero");
+            }
 
-    public double GetDecimalValue()
-    {
-        // Notice that this is not stored as a member variable.
-        // Is will be recomputed each time this is called.
-        return (double)_top / (double)_bottom;
+            _numerator = numerator;
+            _denominator = denominator;
+        }
+
+        // Getters and Setters
+        public int Numerator
+        {
+            get { return _numerator; }
+            set { _numerator = value; }
+        }
+
+        public int Denominator
+        {
+            get { return _denominator; }
+            set 
+            {
+                if (value == 0)
+                {
+                    throw new ArgumentException("Denominator cannot be zero");
+                }
+                _denominator = value; 
+            }
+        }
+
+        // Method to get fraction string
+        public string GetFractionString()
+        {
+            return $"{_numerator}/{_denominator}";
+        }
+
+        // Method to get decimal value
+        public double GetDecimalValue()
+        {
+            return (double)_numerator / _denominator;
+        }
     }
 }
