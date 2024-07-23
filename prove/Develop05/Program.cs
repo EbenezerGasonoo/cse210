@@ -4,14 +4,15 @@ using System.IO;
 
 public abstract class Goal
 {
-    protected string _shortName;
-    protected string _description;
-    protected int _points;
+    private string _shortName;
+    private string _description;
+    protected int _points; // Changed to protected for access in derived classes
 
-    public int Points { get { return _points; } }
     public string ShortName { get { return _shortName; } }
+    public string Description { get { return _description; } }
+    public int Points { get { return _points; } }
 
-    public Goal(string name, string description, int points)
+    protected Goal(string name, string description, int points) // Changed constructor to protected
     {
         _shortName = name;
         _description = description;
@@ -49,12 +50,12 @@ public class SimpleGoal : Goal
 
     public override string GetDetailsString()
     {
-        return $"Simple Goal: {_description} - Points: {_points} - Completed: {(_isComplete ? "[X]" : "[ ]")}";
+        return $"Simple Goal: {Description} - Points: {Points} - Completed: {(_isComplete ? "[X]" : "[ ]")}";
     }
 
     public override string GetStringRepresentation()
     {
-        return $"SimpleGoal:{_shortName}:{_description}:{_points}:{_isComplete}";
+        return $"SimpleGoal:{ShortName}:{Description}:{Points}:{_isComplete}";
     }
 }
 
@@ -67,7 +68,7 @@ public class EternalGoal : Goal
 
     public override void RecordEvent()
     {
-        _points += 100; // Gain 100 points each time the event is recorded
+        _points += 100; // Increase points by 100 each time the event is recorded
     }
 
     public override bool IsComplete()
@@ -77,12 +78,12 @@ public class EternalGoal : Goal
 
     public override string GetDetailsString()
     {
-        return $"Eternal Goal: {_description} - Points: {_points}";
+        return $"Eternal Goal: {Description} - Points: {Points}";
     }
 
     public override string GetStringRepresentation()
     {
-        return $"EternalGoal:{_shortName}:{_description}:{_points}";
+        return $"EternalGoal:{ShortName}:{Description}:{Points}";
     }
 }
 
@@ -119,12 +120,12 @@ public class ChecklistGoal : Goal
 
     public override string GetDetailsString()
     {
-        return $"Checklist Goal: {_description} - Points: {_points} - Completed {_amountCompleted}/{_target}";
+        return $"Checklist Goal: {Description} - Points: {Points} - Completed {_amountCompleted}/{_target}";
     }
 
     public override string GetStringRepresentation()
     {
-        return $"ChecklistGoal:{_shortName}:{_description}:{_points}:{_amountCompleted}:{_target}:{_bonus}";
+        return $"ChecklistGoal:{ShortName}:{Description}:{Points}:{_amountCompleted}:{_target}:{_bonus}";
     }
 }
 
