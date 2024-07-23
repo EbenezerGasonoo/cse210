@@ -51,7 +51,7 @@ public class Program
     public static void Main()
     {
         // Create videos
-        Video video1 = new Video("How to cook Banku", "Kofi Ampong", 300);
+        Video video1 = new Video("How to cook Banku", "Kofi Amapong", 300);
         Video video2 = new Video("Introduction to Algorithms", "Akosua Assisi", 600);
         Video video3 = new Video("Data Structures", "Godfred Yeboah", 450);
 
