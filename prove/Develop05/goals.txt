@@ -1,0 +1,7 @@
+SimpleGoal:Run:Run a marathon:1000:False
+EternalGoal:Read:Read scriptures:200
+ChecklistGoal:Attend:Attend temple:50:1:10:500
+SimpleGoal:Run:Run a marathon:1000:False
+EternalGoal:Read:Read scriptures:200
+ChecklistGoal:Attend:Attend temple:50:1:10:500
+TotalPoints:1500
